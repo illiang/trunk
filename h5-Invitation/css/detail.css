@@ -1,0 +1,174 @@
+@charset "utf-8";
+/* CSS Document */
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: #7b1d27;
+    font-family: arial;
+    text-align: center;
+    font-size: 75px;
+}
+img{width: 100%;height: 100%;}
+
+.reel{
+	width: 2.88rem;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 999;
+}
+
+.anima{
+	opacity: 0;
+}
+
+.none{
+	display: none;
+}
+
+.slide{
+	position: relative;
+	height: 100vh;
+}
+
+.slide1 .title{
+	width: 0.9333rem;
+	height: 9.6667rem;
+	position: absolute;
+	right: 4.0133rem;
+	top: 1.4400rem;
+	z-index: 2;
+	animation: fadeIn-T 1.5s ease forwards;
+}
+
+.slide1 .text{
+	width: 3.32rem;
+	height: 9.3333rem;
+	position: absolute;
+	left: 1.1867rem;
+	bottom: 1.4533rem;
+	z-index: 2;
+	animation: fadeIn-L 1.5s 1s ease forwards;
+}
+
+.move-reel{
+	height: 100%;
+	/*position: absolute;*/
+	transform: translateX(0);
+	transition: all 0.8s;
+	left: -39.82rem;
+	z-index: 5;
+}
+
+.mL-1{
+	width: 100vw;
+	float: left;
+	margin-left: -1px;
+}
+.gesture{
+	width: 2.3467rem;
+	height: 1.04rem;
+	position: absolute;
+	right: 1rem;
+	top: 0.8rem;
+	z-index: 99;
+}
+.spantxt{
+	font-size: 13px;
+	color: #fff;
+	opacity: 0.8;
+	position: absolute;
+	top: 60%;
+	left: -1.5rem;
+}
+.arr span{
+	width: 0.8933rem;
+	height: 0.2133rem;
+	display: inline-block;
+}
+.arr-left{
+	transform: rotateZ(-3deg);
+	animation: opacl 2.5s infinite ease-in-out;
+}
+.arr-right{
+	opacity: 0;
+	transform: rotateZ(3deg);
+	animation: opacr 2.5s 1s infinite ease-in-out;
+}
+
+.mr20px{
+	margin-right: 0.2667rem;
+}
+
+.hand{
+	margin-top: 1px;
+	margin-left: -15px;
+	width: 0.7933rem;
+	height: 1.06rem;
+	animation: start 2.5s infinite ease-in-out;
+	-webkit-transform-origin: center bottom;
+	transform-origin: center bottom;
+}
+
+.arrow {
+    display: block;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    margin-left: -10px;
+    border-top: 2px solid #5a584e;
+    border-right: 2px solid #5a584e;
+    z-index: 9999;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+    animation: fadeInUp 1.5s .2s ease infinite;
+    -webkit-animation: fadeInUp 1.5s .2s infinite;
+}
+.music {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 25px;
+    height: 25px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADcAAAA3CAMAAACfBSJ0AAAAh1BMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9qkf8RAAAALHRSTlMA6j0E4S2vQO/nFWs2Dgga+VMo7M25h3ZG02Vbmnww87NNP96oI8CMb5Lg1UAzAj8AAAKLSURBVEjHndbbkqMgEADQRpSAGsX7XeMmMcmO//99WzqzEgWMNf2QB6tOEZqGblCFHaSkQHzkqLikgQ2Hws9iemmC1saA7TZoLjTO/I/KJVF9wqtP+FRHxN1VYXItPcV3r7wmoVZ5KXMwqAM7LPU0ixVkLwU2KZRL5siB/XBQLn+smAGfwkCVxEwLPjvKNjA3wwMMnaz1X70j9xCbfu5vBxCXBxmAE4vjSMke8PI0Nmc2B0mXg2Pac8NGM3Dz5owLA5v9T0XiqI2bJR26lSHAeVwYgJP8lLKJZWQ9L5SSp/WT7lEwwOZ3Eom0XHBDXZK5eElJNK7qZk6HT6V6/fsyJiNYs3Iene5jVsM2TOs9MzXnbOWgzgAgPqmcyAzlj/C8dqcYwI+wwonMVFMmNw4jGwICsgvKn8zMxy05IAGkjcLxoTGwKC7JNQ8gvcK1q5qUXX+BwlI4SzClswpAtsYJJjufAccaJ5jszh2MoHGCyQ5GzXqCadbT7U8w3OZ5L+1Pk0/Byoher1cpn+rzqxZWoVx5fsp6YfS0XKleXS+q+jTGcnkgKYCyPrf3oa9vA+fLnkP0nYdOug8QGyDixh51V9PFYerOyRnWfyie7vtLfHCKs4H+vN/37OsO4Eb5yr0ymC6ueF+KfmLvDr+6Ie7KFfMif/Oe8X5iws2pKatNaThk+35GdGIeV9SQ/H6K99rgybynYb/tJpv+YKDArFsrpa3WiP4g+tGUEv9GebLLgKSr/jezDyH6n+i3B5mL7qv+zughZqF8O4ZYB1hoVr+ZX1xW/WpeinLNfObvKF8znwF4j+ipnQef0cMDXbQ782f7Yd6linmXEvfwfO2fAfTztX6eZ3Sk7Es3z/8D0fgrl5NXHdYAAAAASUVORK5CYII=');
+
+    background-size: 25px;
+    z-index: 99;
+}
+.music.play {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADcAAAA3CAMAAACfBSJ0AAAAilBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////2N2iNAAAALXRSTlMA6y3h5gVsDgg2snYaPe/UFqtTKPK4r4Z9ZUxFMAP3WpokE97NiyzOv2mjksf96K+aAAACWUlEQVRIx52W6a6CMBCFp9pi2cq+L4LiLu//ejdgIkJL4XJ+GGnypfQM0zkg0smNHAu1bYss7eKeYJUMvfG12M1tAsTO3VjzG91YpNQQVSYZLRGzQqEqpbzgnFDgRZNz4M1SNMIPAmKRB47ozGZWaMO87NASbpkhBeRSUMYvHrEJSzLxkceusKzrFMywB2u0G79qjVRYJxPVPwVoElgrpRnKETkgEc2iNx4ew+hbODxbN2LG9xI/lfanjl8rAnHhClUPfOQ8aoDDDwdKAL3UPREYp2iMacqu+z/hyP5jYsht5zrID3S1AAABB0rY9xujU27/GrcSTUccZV0/6hVw3G7qzIiDSgeAxhRzgzNJfRhzZgNgo0LM9c6EH2cmXIFO4GrAc+5jcEbAgeZCFAu48h4Pzgi4+AJOKuDy7lfCpRpYOwG3W+CuFiB7A2dgKMkG7uBDCxs4aLfut3w+kmdZyp1v0c8EsfP5zPvppFLuiDJx/aJYyu3Tme/FDWVczYqZ79MY90NaOY5TfjkPfXzwuX6A22//PfFF13X25QhTe3Pu4/67df3+GhYU6zQ5n24ZAOpkEL307h3QcL9Y6dSX4lXe334ywigy+vvs8V0pT3zd6+RoT656bXp/4h6gpfj+Hu7P6X1dPfszveWTJeDmg72v8mvk5zLMxh4/j4wnKwMxxs8joLd/zL8b3TJvVVRvnO9b8oSHj1vyi8pjAOmKvJTO5DNDQhmONeMBvSBlNg8q6EJhTrkkf+byo2tMkHeZpq7J16zL18YBij5fs5skX/N5Hvutj2fz/B/LOymzX/xZaQAAAABJRU5ErkJggg==');
+    -webkit-animation: rotate 3.82s linear infinite;
+    animation: rotate 3.82s linear infinite;
+}
+@keyframes fadeInUp{0%{opacity:0;transform:translateX(20px) rotate(-135deg)}100%{opacity:1;transform:translateX(0px) rotate(-135deg)}}@-webkit-keyframes fadeInUp{0%{opacity:0;-webkit-transform:translateX(20px) rotate(-135deg)}100%{opacity:1;-webkit-transform:translateX(0px) rotate(-135deg)}}
+@keyframes rotate{0%{-webkit-transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg)}}@-webkit-keyframes rotate{0%{-webkit-transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg)}}
+
+@keyframes fadeIn-T {
+	0%	{opacity: 0;transform: translateY(-10rem);-webkit-transform: translateY(-10rem);}
+	50% {opacity: 0.7;transform: translateY(0rem);-webkit-transform: translateY(0);}
+	100% {opacity: 1;transform: translateY(0);-webkit-transform: translateY(0);}
+}
+@keyframes fadeIn-L {
+	0%	{opacity: 0;transform: translateX(-10rem);-webkit-transform: translateX(-10rem);}
+	50% {opacity: 0.7;transform: translateX(0);-webkit-transform: translateX(0);}
+	100% {opacity: 1;transform: translateX(0);-webkit-transform: translateX(0);}
+}
+@keyframes start {
+	0%	{opacity: 1;transform: rotate(20deg);-webkit-transform: rotate(20deg);}
+	40% {opacity: 0;transform: rotate(-5deg);-webkit-transform: rotate(-5deg);}
+	65%	{opacity: 1;transform: rotate(20deg);-webkit-transform: rotate(20deg);}
+	90% {opacity: 0;transform: rotate(45deg);-webkit-transform: rotate(45deg);}
+	100% {opacity: 0;transform: rotate(25deg);-webkit-transform: rotate(25deg);}
+}
+@keyframes opacl {
+	0%	{opacity: 0;}
+	50% {opacity: 1;}
+	100% {opacity: 0;}
+}
+@keyframes opacr {
+	0%	{opacity: 0;}
+	50% {opacity: 1;}
+	100% {opacity: 0;}
+}
