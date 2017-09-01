@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head class="js-no-overflow-scrolling">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maxinum-scale=1,user-scalable=no">
+	<title>凤凰艺术年展开幕式</title>
+	<script src="js/flexible_css.debug.js"></script>
+    <script src="js/flexible.debug.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/H5FullscreenPage.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper-3.4.2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/detail.css?20170831">
+	<script src="js/zepto.min.js"></script>
+	<script src='js/swiper-3.4.2.min.js'></script>
+</head>
+<body class="H5FullscreenPage">
+	<!-- <div class="none">
+		<img src="images/logo.png" alt="">
+	</div> -->
+	<div class="H5FullscreenPage-wrap">
+		<div class="item item1">
+			<img src="images/pk1.jpg" alt="">
+		</div>
+		<div class="item item2">
+			<div class="reel">
+				<img src="images/reel.png" alt="">
+			</div>
+			<ul class="move-reel">
+				<li><img src="images/p2_txt_01.jpg" alt=""></li>
+				<li><img src="images/p2_txt_02.jpg" alt=""></li>
+				<li><img src="images/p2_txt_03.jpg" alt=""></li>
+				<li><img src="images/p2_txt_04.jpg" alt=""></li>
+				<li><img src="images/p2_txt_05.jpg" alt=""></li>
+			</ul>
+			<div class="gesture">
+				<div class="arr">
+					<span class="arr-left mr20px"><img src="images/left.png" alt=""></span>
+					<span class="arr-right"><img src="images/right.png" alt=""></span>
+				</div>
+				<img src="images/hand.png" alt="" class="hand">
+				<span class="spantxt">请打开卷轴</span>
+			</div>
+		</div>
+		<div class="item item3">
+			<div class="movies">
+                <!-- poster -->
+				<video src="build/videoEnd.mp4" controls preload="auto" style="object-fit:fill"></video>
+			</div>
+			<img src="images/pk3.jpg" alt="" class="imgpk">
+		</div>
+		<div class="item item4 swiper-container" id="swiper">
+			<div class="workers">
+				<!-- <div><img src="images/works_jxy.png" alt=""></div>-->
+			</div>
+			<div class="intro swiper-wrapper">
+				<!-- <div class="intro-pinter"><a href=""><img src="images/pinter_glm.png" alt=""></a></div> -->
+				<span class="introBotColor"></span>
+			</div>
+            <span class="tip tip1">滑动切换 点击查看</span>
+		</div>
+		<div class="item item5">
+			<div class="mapwrap">
+				<div class="map">
+					<div class="map-item">
+						<img src="images/map.png" alt="">
+						<span class="spa sp1"></span>
+						<span class="spa sp2"></span>
+						<span class="spa sp3"></span>
+						<span class="spa sp4"></span>
+						<span class="spa sp5"></span>
+						<span class="spa sp6"></span>
+						<span class="spa sp7"></span>
+					</div>
+				</div>
+				<span class="tip tip2">点击查看展馆介绍</span>
+			</div>
+			<div class="address">
+				<div class="swiper-wrapper sug">
+					<div class="swiper-slide sug-img ac"><img src="images/pavilion.png" alt=""></div>
+					<div class="swiper-slide sug-img"><img src="images/pavilion3.png" alt=""></div>
+					<div class="swiper-slide sug-img"><img src="images/pavilion4.png" alt=""></div>
+					<div class="swiper-slide sug-img"><img src="images/pavilion6.png" alt=""></div>
+					<div class="swiper-slide sug-img"><img src="images/pavilion2.png" alt=""></div>
+					<div class="swiper-slide sug-img"><img src="images/pavilion5.png" alt=""></div>
+					<div class="swiper-slide sug-img"><img src="images/pavilion7.png" alt=""></div>
+				</div>
+			</div>
+			<img src="images/pk5.jpg" class="imgpk">
+		</div>
+		<div class="item item6">
+			<img src="images/pk6.jpg" alt="">
+		</div>
+		<div class="item item7">
+			<img src="images/pk7.jpg" alt="">
+		</div>
+    </div>
+	<script src="js/H5FullscreenPage.js?v=1"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script src='js/wxshare.js'></script>
+	<script>
+		(function(){
+			H5FullscreenPage.init({'type':5,'pageShow' : function(dom){
+			    },'pageHide' : function(dom){
+			        //console.log(dom);
+		    }});
+			function touchmove(obj,speed,ox,bool){
+				var startPosition, endPosition, deltaX, deltaY, moveLength;
+				var n=0;
+		        $(obj).bind('touchstart', function(e){
+		            var touch = e.touches[0];
+		            startPosition = {
+		                x: touch.pageX,
+		                y: touch.pageY
+		            }
+		        }) .bind('touchmove', function(e){
+		            var touch = e.touches[0];
+		            endPosition = {
+		                x: touch.pageX,
+		                y: touch.pageY
+		            };
+
+		            deltaX = endPosition.x - startPosition.x;
+		            deltaY = endPosition.y - startPosition.y;
+		            console.log(deltaX)
+		            // moveLength = Math.sqrt(Math.pow(Math.abs(deltaX), 2) + Math.pow(Math.abs(deltaY), 2));
+
+		        }).bind('touchend', function(e){
+		            if(deltaX < 0) { // 向左划动
+		            	n = n+deltaX-speed;
+		            	if(bool){
+		            		if (n<=0) {
+			            		n=0;
+			            	}
+		            	}else{
+		            		if (n<=-ox) {
+			            		n=-ox;
+			            	}
+			            	console.log("向左划动");
+		            	}
+		            	console.log(n)
+		                $(obj).css("transform", "translateX("+(n/75)+"rem)");
+		            } else if (deltaX > 0) { // 向右划动
+		            	n = n+deltaX+speed;
+		            	if(bool){
+		            		if(n>=ox){
+			            		n=ox;
+			            	}
+		            	}else{
+		            		if(n>=0){
+			            		n=0;
+			            	}
+		            	}
+		            	console.log(n)
+		                console.log("向右划动");
+		                $(obj).css("transform", "translateX("+(n/75)+"rem)");
+		            }
+	    		});
+		    }
+		    touchmove('.move-reel',400,3000,true);
+			touchmove('.map',200,519,true);
+
+			//艺术家循环
+			var pinters = ["pinter_jsy","pinter_df","pinter_zyd","pinter_yy","pinter_wy","pinter_wws","pinter_tyl","pinter_ls","pinter_tlm","pinter_lly","pinter_glm","pinter_f_sh","pinter_f_mlt","pinter_f_rg","pinter_f_mdk","pinter_f_knj","pinter_f_ked","pinter_f_glq","pinter_lg"];
+
+			var works = ["works_jsy","works_df","works_zyd","works_yy","works_wy","works_wws","works_tyl","works_ls","works_tlm","works_lly","works_glm","works_sh","works_mlt","works_rg","works_mdk","works_knj","works_ked","works_glq","works_lg"];
+
+			var introColor = ["#4c3322","#4f3b6a","#4c3322","#4c504f","#44423f","#4c3322","#8c412c","#26262b","#9b753a","#0d3873","#2a3b4e","#020203","#0a2977","#020203","#234a6f","#020203","#020203","#4c3322","#97733a"];
+
+			var proImgUrl ='';
+			var worksImgUrl = '';
+
+			for (var i = 0; i <= pinters.length-1; i++) {
+				// pinters[i].index = i;
+				proImgUrl = '<div class="intro-pinter swiper-slide"><a><img src="images/'+ pinters[i] +'.png" alt=""></a></div>';
+				worksImgUrl = '<div class="works-items"><img src="images/'+ works[(pinters.length-1)-i] +'.png" alt=""></div>';
+
+				$(".workers").append(worksImgUrl);
+				$(".intro").append(proImgUrl);
+				$(".works-items").eq(18).addClass('ac');
+			}
+			$('.intro-pinter a').each(function(index){
+				$('.intro-pinter a').eq(index).click(function(){
+					$('.works-items').eq(18-index).addClass('ac').siblings().removeClass('ac');
+					$('.introBotColor').css("background-color",introColor[index]);
+					console.log(introColor[index]);
+				})
+			})
+
+            //地图点击
+			$('.spa').each(function(index){
+				$('.spa').eq(index).click(function(){
+					$('.sug-img').eq(index).addClass('ac').siblings().removeClass('ac');
+				})
+			})
+
+			//swiper
+			var mySwiper = new Swiper('#swiper',{
+				touchRatio : 0.5,	//触摸距离与slide滑动距离的比率。
+				// followFinger : false,	//如设置为false，拖动slide时它不会动，当你释放时slide才会切换。
+				resistanceRatio : 0,
+				observer: true,//修改swiper自己或子元素时，自动初始化swiper
+				observeParents: true//修改swiper的父元素时，自动初始化swiper
+			});
+
+
+	        //解决ios不能自动播放
+	        function audioAutoPlay(id){
+				var audio = document.getElementById(id),
+					play = function(){
+						audio.play();
+						document.removeEventListener("touchstart",play, false);
+					};
+				audio.play();
+			    document.addEventListener("WeixinJSBridgeReady", function () {
+			        play();
+			    }, false);
+			    document.addEventListener('YixinJSBridgeReady', function() {
+			    	play();
+			    }, false);
+			    document.addEventListener("touchstart",play, false);
+			    // console.log(document.getElementById(id));
+			}
+			audioAutoPlay('audio');
+
+			//wxconfig
+			wx.config({
+			    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+			    appId: 'wxe7feb381ff54b004',
+			    timestamp: 1503314712,
+			    nonceStr: 'cJ8F8YpHSYR5udrY',
+			    signature: '065839f0694b80fcdc7e133996a543f377c53789',
+			    jsApiList: ['jsApiList',
+			    	'onMenuShareTimeline',
+		            'onMenuShareAppMessage',
+		            'onMenuShareQQ',
+		            'onMenuShareWeibo',
+		            'onMenuShareQZone'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+			});
+		})();
+	</script>
+</body>
+</html>
